@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuthering Waves</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#characters">Personajes</a></li>
+                <li><a href="#register">Registro</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Bienvenido a Wuthering Waves</h1>
+                <p>Únete a nuestra comunidad y mantente informado sobre las últimas novedades.</p>
+                <a href="#register" class="btn">Regístrate Ahora</a>
+            </div>
+        </div>
+    </header>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const characters = document.querySelectorAll('.character');
+    characters.forEach(character => {
+        character.style.opacity = '1';
+        character.style.transform = 'translateX(0)';
+    });
+});
+
+function validateForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    let isValid = true;
+
+    // Expresiones regulares para validación
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Validación del nombre
+    if (!nameRegex.test(name)) {
+        document.getElementById('formResult').textContent = 'Nombre no válido. Solo se permiten letras y espacios.';
+        isValid = false;
+    }
+
+    // Validación del correo electrónico
+    if (!emailRegex.test(email)) {
+        document.getElementById('formResult').textContent = 'Correo electrónico no válido.';
+        isValid = false;
+    }
+
+    // Si todo es válido
+    if (isValid) {
+        document.getElementById('formResult').textContent = 'Registro exitoso.';
+        document.getElementById('formResult').style.color = 'green';
+        document.getElementById('registerForm').reset();
+    }
+}
+
+    </script>
+    <section id="about">
+        <h2>Sobre Nosotros</h2>
+        <p>En el mundo de Wuthering Waves, un lugar donde la magia y la tecnología coexisten, la paz es un lujo que pocos recuerdan. Hace mucho tiempo, el equilibrio del mundo se rompió debido a un cataclismo que devastó civilizaciones y dio origen a misteriosas criaturas y fenómenos. En medio del caos, surgieron héroes con habilidades extraordinarias, decididos a restaurar la armonía y proteger a los inocentes.
+
+            Entre ellos se encuentran Chixia, Baizhi y Yangyang, un trío improbable unido por el destino. Chixia, una guerrera implacable, lucha por la justicia con su espada imbuida de energía mágica. Baizhi, un sabio con un vasto conocimiento de las artes arcanas, usa su sabiduría para desentrañar los secretos del pasado y guiar a sus compañeros. Yangyang, un joven prodigio de la tecnología, inventa dispositivos innovadores que les dan ventaja en sus misiones.
+            
+            Juntos, recorren un mundo lleno de peligros y maravillas, enfrentándose a desafíos que pondrán a prueba su coraje y lealtad. Cada paso que dan les acerca más a descubrir la verdad detrás del cataclismo y encontrar una manera de devolver la paz a su mundo destrozado.
+            
+            Wuthering Waves es una aventura épica que celebra la valentía, la amistad y la perseverancia en un universo donde lo inesperado acecha en cada esquina</p>
+    </section>
+
+    <section id="characters">
+        <h2>Personajes</h2>
+        <div class="character">
+            <img src="img\chixia-image.webp" alt="Chixia" class="character-image">
+            <div class="character-text">
+                <h3>Chixia</h3>
+                <p>Chixia es una guerrera intrépida conocida por su valentía y espíritu indomable. Creció en una familia de guerreros y desde joven fue entrenada en el arte del combate. Su determinación y habilidades la han convertido en una figura respetada y temida en los campos de batalla. Chixia no solo lucha por la victoria, sino también por la justicia y la protección de los inocentes, siempre dispuesta a sacrificarse por el bien mayor.</p>
+            </div>
+        </div>
+        <div class="character">
+            <img src="img\T_IconRole_Pile_bailian_UI.png" alt="Baizhi" class="character-image">
+            <div class="character-text">
+                <h3>Baizhi</h3>
+                <p>Baizhi es una persona conocida por su sabiduría y serenidad. Originaria de una familia de eruditos, ha dedicado su vida al estudio y la meditación. Baizhi posee un vasto conocimiento de la naturaleza y de las antiguas tradiciones, lo que la convierte en una figura consultada en tiempos de crisis. Su calma y perspicacia le permiten ver soluciones donde otros solo ven problemas, y su presencia tranquilizadora es un faro de esperanza para sus aliados.</p>
+            </div>
+        </div>
+        <div class="character">
+            <img src="img\yang_card.webp" alt="Yangyang" class="character-image">
+            <div class="character-text">
+                <h3>Yangyang</h3>
+                <p>Yangyang es el miembro más joven y enérgico del grupo. Con una curiosidad insaciable y un espíritu aventurero, siempre busca nuevos retos y experiencias. Yangyang tiene una habilidad innata para la tecnología y las invenciones, lo que le permite crear dispositivos innovadores que ayudan en sus misiones. Su entusiasmo y optimismo son contagiosos, motivando a sus compañeros a seguir adelante incluso en las situaciones más difíciles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register">
+        <h2>Regístrate</h2>
+        <form id="registerForm" onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Introduce tu nombre" required>
+                <small id="nameHelp" class="form-text">Solo se permiten letras y espacios.</small>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
+                <small id="emailHelp" class="form-text">Ejemplo: nombre@dominio.com</small>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="formResult"></p>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Para más información, contáctanos en info@wutheringwaves.com.</p>
+        <div class="social-icons">
+            <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwipuf-V0o6KAxWbHLkGHYSJEsoQFnoECAwQAQ&url=https%3A%2F%2Fwww.facebook.com%2FWutheringWaves.Official%2F%3Flocale%3Des_LA&usg=AOvVaw3rGg4_CDAb9DxzEgLYDiUc&opi=89978449" target="_blank">
+                <img src="img\descarga.png" alt="Facebook">
+            </a>
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2FWuthering_Waves%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR1qzPmdZEAUnZpvxdC74mNFcNQ0zHR3AjFHWxBxagqwuMQSrPM4yBtOMKM_aem_5lILvAucKY0QEkreulLZGw&h=AT2lM9CUMCf7GVBqFvx5cgoLgLDkzH0-YoaYcHRz63HLOBBnSUKrQazAw0pwa3YOMk_DhOUcjn3kxCDpjv-qistXFhJ3E5tdLF_UiSOPgF2KMeN5fYWpDCzVrhMJkmHmLVopdYsBn2oqYig4A3Z8" target="_blank">
+                <img src="img\xWVjuc9hryql.gif" alt="Twitter">
+            </a>
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fwuthering_waves%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR3RdZhj6Ct3ikxnR9sxHPTDoFhjC-YGpJWwHPUD1X0VF0MkqmOF5QiQTvI_aem_objiP17r1P4XR8sPYcLV6A&h=AT2M5J-ceYFQLi9F6O3HS7ueMhJF0m5gRDS7cY95aGBxqES7Py66dp9IDDv_S657GTTBtOkvweeud-M37nMNxH5TC-jdHh2oOp_VZkfUW99oYh5ajHe6_ylaPbt0OhtVooqhC85onQ4HP5OtWxSV" target="_blank">
+                <img src="img\descarga (1).png" alt="Instagram">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Wuthering Waves. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
